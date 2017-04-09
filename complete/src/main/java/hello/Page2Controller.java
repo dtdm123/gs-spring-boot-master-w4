@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class Page2Controller {
-	@RequestMapping(value="/conference", method=RequestMethod.GET)
-	String showPage2(){
-		return "jsp/conference";
-	}
+	@RequestMapping("/conference")
+    public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
+        model.addAttribute("name", name);
+        return "jsp/conference";
+    }
+
 
 }
